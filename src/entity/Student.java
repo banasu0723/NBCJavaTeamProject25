@@ -9,7 +9,7 @@ public class Student
     private List<Subject> subjects;
     private StudentStatus status;
 
-    //(기본생성자)
+    //기본생성자
     public Student(int id, String name, List<Subject> subjects, StudentStatus status) {
         this.id = id;
         this.name = name;
@@ -17,7 +17,7 @@ public class Student
         this.status = status;
     }
 
-    //일단 쓰든 쓰지않든 냅두기! (조준호)
+    //일단 쓰든 쓰지않든 냅두기!
     public int getId() {
         return id;
     }
