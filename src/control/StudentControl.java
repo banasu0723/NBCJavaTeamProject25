@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StudentControl
-{
+public class StudentControl {
     private Map<Integer, Student> students = new HashMap<>();
     private Map<Integer, Subject> subjects;
 
@@ -18,8 +17,8 @@ public class StudentControl
         this.subjects = subjectControl.getSubjects();
     }
 
-    public void addStudent(int id, String name, String subject)
-    {
+    //학생 등록 메서드
+    public void addStudent(int id, String name, String subject) {
         String[] subjectsArr = subject.split(",");
         List<Subject> subjectsList = new ArrayList<>();
 
@@ -33,11 +32,10 @@ public class StudentControl
                 subjectsList.add(sub);
                 if (sub.getType().equals("필수")) {
                     essentialCount++;
-                } else if(sub.getType().equals("선택")) optionCount++;
+                } else if (sub.getType().equals("선택")) optionCount++;
             }
         }
-        if (essentialCount < 3 || optionCount < 2)
-        {
+        if (essentialCount < 3 || optionCount < 2) {
             System.out.println("필수는 3과목 이상, 선택은 두과목 이상 선택하여야 합니다");
             return;
         }
@@ -49,18 +47,7 @@ public class StudentControl
     }
 
     public void getStudentInfo(int id) {
-        if (students.containsKey(id)) {
-            Student student = students.get(id);
-            System.out.println("ID: " + student.getId() + ", Name: " + student.getName());
-            System.out.println("Status: " + student.getStatus());
 
-            System.out.println("Subjects:");
-            for (Subject subject : student.getSubjects()) {
-                System.out.println(" - " + subject.getName() + " (" + subject.getType() + ")");
-            }
-        } else {
-            System.out.println("학생을 찾을 수 없습니다.");
-        }
     }
 
     public void getStudentByState(String state) {
