@@ -16,6 +16,7 @@ public class Score
         this.grade = grade;
     }
 
+
     public int getStudentId() {
         return studentId;
     }

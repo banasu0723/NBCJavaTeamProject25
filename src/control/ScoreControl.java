@@ -15,7 +15,10 @@ public class ScoreControl {
         this.studentControl = studentControl;
     }
 
+
+    //수강생 점수 등록
     public void addScore(int id, int subjectId, int round, int score) {
+        //고유 번호가 id인 학생
         Student student = studentControl.getStudentById(id);
 
         Subject thisSubject = null;
@@ -24,6 +27,7 @@ public class ScoreControl {
                 thisSubject = subject;
             }
         }
+        //등급 추가
         char grade = calculateGrade(score, thisSubject.getType());
         Score newScore = new Score(id, subjectId, score, round, grade);
         scores.add(newScore);
@@ -31,6 +35,7 @@ public class ScoreControl {
         System.out.println("등록이 완료되었습니다:");
     }
 
+    //점수별 등급 계산
     private char calculateGrade(int score, String type) {
         if (type.equals("필수")) {
             if (score >= 95 ) return 'A';
@@ -48,9 +53,20 @@ public class ScoreControl {
         return 'N';
     }
 
+    //수강생의 과목별 회차 점수 수정
+    public void updateScore(int id, int subject, int round, int newScore) {
+        System.out.println("시험 점수를 수정합니다...");
 
-    public void updateScore(int id, int subject, int round, int score) {
+        //조건에 맞는 수강생의 회차에 맞는 점수 넣기
+        for(Score score : scores){
+            if(score.getStudentId() == id && score.getSubjectId()==subject && score.getRound()==round){
+                score.setScore(newScore);
+            }
+        }
+
+        System.out.println("\n점수 수정 성공!");
     }
+
 
     public void getGradesBySession(int id, int subject) {
     }
