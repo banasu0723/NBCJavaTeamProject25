@@ -12,7 +12,7 @@ public class App {
         //테스트 더미데이터 생성할 예정..!
 
         SubjectControl subjectControl = new SubjectControl();
-        StudentControl studentControl = new StudentControl();
+        StudentControl studentControl = new StudentControl(subjectControl);
         ScoreControl scoreControl = new ScoreControl();
 
         while (true) {
