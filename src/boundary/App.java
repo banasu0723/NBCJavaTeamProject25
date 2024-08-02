@@ -13,7 +13,8 @@ public class App {
 
         SubjectControl subjectControl = new SubjectControl();
         StudentControl studentControl = new StudentControl(subjectControl);
-        ScoreControl scoreControl = new ScoreControl();
+        ScoreControl scoreControl = new ScoreControl(studentControl);
+
 
         while (true) {
             //조회 및 입력부분
@@ -59,7 +60,7 @@ public class App {
                 System.out.print("등록할 점수를 입력해주세요 : ");
                 int score = sc.nextInt();
                 //점수 등록 메서드 : id, subject, round, score
-                //scoreControl.addScore(id, subject, round, score);
+                scoreControl.addScore(id, subject, round, score);
             } else if (cmd == 4) {
                 // 점수 수정 로직
                 System.out.print("수강생 ID를 입력하세요 : ");
@@ -73,7 +74,7 @@ public class App {
                 System.out.print("등록할 점수를 입력해주세요 : ");
                 int score = sc.nextInt();
                 //점수 수정 메서드 : id, subject, round, score
-                //scoreControl.updateScore(id, subject, round, score);
+                scoreControl.updateScore(id, subject, round, score);
             } else if (cmd == 5) {
                 // 회차별 등급 조회 로직
                 System.out.print("수강생 ID를 입력하세요 : ");
