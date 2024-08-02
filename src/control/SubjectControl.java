@@ -26,4 +26,20 @@ public class SubjectControl
         subjects.put(9, new Subject(9, "MONGODB", "선택"));
         System.out.println("등록되는지 테스트");
     }
+
+    public void displayAllSubjects()
+    {
+        for(Subject subject : subjects.values())
+        {
+            System.out.println("id : " + subject.getId() + ", 과목명 : " + subject.getName() + ", 필수 / 선택 : " + subject.getType());
+        }
+    }
+
+    public Map<Integer, Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Map<Integer, Subject> subjects) {
+        this.subjects = subjects;
+    }
 }
