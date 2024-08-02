@@ -50,7 +50,13 @@ public class StudentControl {
 
     }
 
+    // 상태별 수강생 목록 조회메서드
     public void getStudentByState(String state) {
+        for (Student student : students.values()) {
+            if(student.getStatus().name().equals(state)) {
+                System.out.println(" ID : " + student.getId() + " 이름 : " + student.getName());
+            }
+        }
     }
 
     public void deleteStudent(int id) {
