@@ -45,13 +45,14 @@ public class App {
                 studentControl.addStudent(id, name, subjects);
             } else if (cmd == 2) {
                 // 수강생 목록 조회 로직
-                 //studentControl.getAllStudents();
+                 studentControl.getAllStudents();
             } else if (cmd == 3) {
                 // 점수 등록 로직
                 System.out.print("수강생 ID를 입력하세요 : ");
                 int id = sc.nextInt();
                 //학생 과목 조회 메서드 추가
-                System.out.print("과목 번호를 입력하세요 : ");
+                subjectControl.displayAllSubjects();
+                System.out.print("등록할 과목 번호를 입력하세요 : ");
                 int subject = sc.nextInt();
                 System.out.print("회차를 입력하세요 : ");
                 int round = sc.nextInt();
@@ -64,7 +65,8 @@ public class App {
                 System.out.print("수강생 ID를 입력하세요 : ");
                 int id = sc.nextInt();
                 //학생 과목 조회 메서드 추가
-                System.out.print("과목 번호를 입력하세요 : ");
+                subjectControl.displayAllSubjects();
+                System.out.print("수정할 과목 번호를 입력하세요 : ");
                 int subject = sc.nextInt();
                 System.out.print("회차를 입력하세요 : ");
                 int round = sc.nextInt();
@@ -76,6 +78,7 @@ public class App {
                 // 회차별 등급 조회 로직
                 System.out.print("수강생 ID를 입력하세요 : ");
                 int id = sc.nextInt();
+                subjectControl.displayAllSubjects();
                 System.out.print("과목 번호를 입력하세요 : ");
                 int subject = sc.nextInt();
                 //회차별 등급 조회 메서드 : id, subject
