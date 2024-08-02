@@ -38,10 +38,11 @@ public class App {
                 sc.nextLine();
                 System.out.print("학생 이름을 입력하세요 : ");
                 String name = sc.nextLine();
+                subjectControl.displayAllSubjects();
                 System.out.print("과목 목록을 숫자로 입력해주세요 : ");
                 String subjects = sc.nextLine();
                 // 학생 등록 메서드 : 매개변수 id, name, 과목목록
-                //studentControl.addStudent(id, name, subjects);
+                studentControl.addStudent(id, name, subjects);
             } else if (cmd == 2) {
                 // 수강생 목록 조회 로직
                  //studentControl.getAllStudents();
