@@ -1,8 +1,13 @@
 package control;
 
+import entity.Student;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class StudentControl
 {
-    private ScoreControl scoreControl;
+    private Map<Integer, Student> students = new HashMap<>();
 
     public void addStudent(int id, String name, String subjects) {
     }

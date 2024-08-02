@@ -10,11 +10,12 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //테스트 더미데이터 생성할 예정..!
-        while (true) {
-            SubjectControl subjectControl = new SubjectControl();
-            StudentControl studentControl = new StudentControl();
-            ScoreControl scoreControl = new ScoreControl();
 
+        SubjectControl subjectControl = new SubjectControl();
+        StudentControl studentControl = new StudentControl();
+        ScoreControl scoreControl = new ScoreControl();
+
+        while (true) {
             //조회 및 입력부분
             System.out.println("1. 학생 등록");
             System.out.println("2. 수강생 목록 조회");
