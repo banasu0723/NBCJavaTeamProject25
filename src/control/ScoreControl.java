@@ -47,8 +47,6 @@ public class ScoreControl {
         }
         return 'N';
     }
-
-
     public void updateScore(int id, int subject, int round, int score) {
     }
 
