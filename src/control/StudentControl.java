@@ -55,4 +55,9 @@ public class StudentControl {
 
     public void deleteStudent(int id) {
     }
+
+    public Student getStudentById(int id)
+    {
+        return students.get(id);
+    }
 }

@@ -7,15 +7,13 @@ public class Score
     private int score;
     private int round;
     private char grade;
-    private String type;
 
-    public Score(int studentId, int subjectId, int score, int round, char grade, String type) {
+    public Score(int studentId, int subjectId, int score, int round, char grade) {
         this.studentId = studentId;
         this.subjectId = subjectId;
         this.score = score;
         this.round = round;
         this.grade = grade;
-        this.type = type;
     }
 
     public int getStudentId() {
@@ -56,13 +54,5 @@ public class Score
 
     public void setGrade(char grade) {
         this.grade = grade;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }
