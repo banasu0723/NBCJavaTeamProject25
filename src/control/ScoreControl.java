@@ -60,10 +60,6 @@ public class ScoreControl {
         scores.add(newScore);
 
         System.out.println("등록이 완료되었습니다:");
-
-
-
-
     }
 
     //점수별 등급 계산
