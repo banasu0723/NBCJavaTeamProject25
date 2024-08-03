@@ -20,11 +20,38 @@ public class ScoreControl {
     public void addScore(int id, int subjectId, int round, int score) {
         //고유 번호가 id인 학생
         Student student = studentControl.getStudentById(id);
+        //예외처리
+        if (student == null) {
+            System.out.println("학생이 없습니다");
+            return;
+        }
+        if (round < 1 || round > 10) {
+            System.out.println("회차는 1~10회차만 가능합니다");
+            return;
+        }
+        if(score < 0 || score > 100 ) {
+            System.out.println("점수는 0~100사이의 값입니다.");
+            return;
+        }
 
+        boolean existSubject = false;
         Subject thisSubject = null;
-        for (Subject subject : student.getSubjects()) {
-            if (subject.getId() == subjectId) {
+        for(Subject subject : student.getSubjects()) {
+            if(subject.getId() == subjectId) {
                 thisSubject = subject;
+                existSubject = true;
+            }
+        }
+
+        if(existSubject) {
+            System.out.println("현재 수강중인 과목이 아닙니다");
+            return;
+        }
+
+        for(Score scores : scores) {
+            if(scores.getStudentId() == id && scores.getSubjectId() == subjectId && scores.getRound() == round) {
+                System.out.println("이미 등록된 점수는 등록 할 수 없습니다");
+                return;
             }
         }
         //등급 추가
@@ -33,6 +60,10 @@ public class ScoreControl {
         scores.add(newScore);
 
         System.out.println("등록이 완료되었습니다:");
+
+
+
+
     }
 
     //점수별 등급 계산
