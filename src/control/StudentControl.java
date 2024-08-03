@@ -59,6 +59,17 @@ public class StudentControl {
         }
     }
 
+    //상태별 수강생 목록 조회 메서드 위 메서드와 합칠수 있을듯
+    public List<Student> getStudentByStatus(StudentStatus status) {
+        List<Student> studentList = new ArrayList<>();
+        for (Student student : students.values()) {
+            if(student.getStatus().name().equals(status.name())) {
+                studentList.add(student);
+            }
+        }
+        return studentList;
+    }
+
     public void deleteStudent(int id) {
     }
 

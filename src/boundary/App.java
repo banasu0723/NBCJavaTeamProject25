@@ -40,13 +40,13 @@ public class App {
                 System.out.print("학생 이름을 입력하세요 : ");
                 String name = sc.nextLine();
                 subjectControl.displayAllSubjects();
-                System.out.print("과목 목록을 숫자로 입력해주세요 : ");
+                System.out.print("과목 목록을 숫자로 입력해주세요 (각 과목별 구분은 , 쉼표로 해주세요) : ");
                 String subjects = sc.nextLine();
-                // 학생 등록 메서드 : 매개변수 id, name, 과목목록
+                // 학생 등록 메서드 : 매개변수 id, name, 과목목록(과목별 구분은 쉼표로 한다)
                 studentControl.addStudent(id, name, subjects);
             } else if (cmd == 2) {
                 // 수강생 목록 조회 로직
-                 studentControl.getAllStudents();
+                studentControl.getAllStudents();
             } else if (cmd == 3) {
                 // 점수 등록 로직
                 System.out.print("수강생 ID를 입력하세요 : ");
@@ -126,7 +126,7 @@ public class App {
                 sc.nextLine();
                 String state = sc.nextLine().toUpperCase();
                 //특정 상태의 수강생 필수 과목 평균 등급 조회 메서드 매개변수 : state
-                //scoreControl.getAverageGradeByStudentState(state);
+                scoreControl.getAverageGradeByStudentState(state);
             } else if(cmd == 12){
                 System.out.println("종료합니다");
                 break;
@@ -137,4 +137,3 @@ public class App {
         sc.close();
     }
 }
-
