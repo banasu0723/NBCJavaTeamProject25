@@ -71,9 +71,28 @@ public class ScoreControl {
     public void getGradesBySession(int id, int subject) {
     }
 
+    //수강생 상태별 필수과목의 평균 등급 조회 - 작성자 조준호
+    //state(green, red, yellow)를 넣으면 그 state를 기반으로 각 학생의 필수과목의 평균등급을 조회합니다.
     public void getAverageGradeByStudentState(String state) {
+        StudentStatus status = StudentStatus.valueOf(state);
+        List<Student> students = studentControl.getStudentByStatus(status);
+
+        for (Student student : students) {
+            int sumScore = 0;
+            int sumEssentialSubjects = 0;
+            for (Subject subject : student.getSubjects()) {
+                if (subject.getType().equals("필수")) {
+                    for (Score score : scores) {
+                        if (score.getSubjectId() == subject.getId() && score.getStudentId() == student.getId()) {
+                            sumScore += score.getScore();
+                            sumEssentialSubjects++;
+                        }
+                    }
+                }
+            }
+            int averageScore = sumScore / sumEssentialSubjects;
+            char grade = calculateGrade(averageScore, "필수");
+            System.out.println(student.getName() + "학생의 필수과목 평균 " + grade);
+        }
     }
-
 }
-
-
