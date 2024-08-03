@@ -70,7 +70,9 @@ public class StudentControl {
         return studentList;
     }
 
+    //수강생을 삭제하는 메서드
     public void deleteStudent(int id) {
+        students.remove(id);
     }
 
     public Student getStudentById(int id)
