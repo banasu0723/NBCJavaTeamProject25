@@ -113,7 +113,9 @@ public class App {
                 System.out.print("삭제할 수강생 ID를 입력하세요 : ");
                 int id = sc.nextInt();
                 //수강생 삭제 메서드 매개변수 : 수강생ID
-                //studentControl.deleteStudent(id);
+                studentControl.deleteStudent(id);
+                scoreControl.deleteStudentScore(id);
+                System.out.println(id + "의 수강생을 삭제했습니다");
             } else if (cmd == 10) {
                 // 수강생 과목별 평균 등급 조회 로직
                 System.out.print("수강생 ID를 입력하세요 : ");

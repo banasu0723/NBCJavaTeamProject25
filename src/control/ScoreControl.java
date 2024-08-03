@@ -95,4 +95,12 @@ public class ScoreControl {
             System.out.println(student.getName() + "학생의 필수과목 평균 " + grade);
         }
     }
+
+    //수강생의 점수를 삭제하는 메서드
+    public void deleteStudentScore(int id)
+    {
+        for(Score score : scores) {
+            if (score.getStudentId() == id) scores.remove(id);
+        }
+    }
 }
