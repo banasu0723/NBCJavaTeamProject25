@@ -101,9 +101,24 @@ public class ScoreControl {
     //수강생 상태별 필수과목의 평균 등급 조회 - 작성자 조준호
     //state(green, red, yellow)를 넣으면 그 state를 기반으로 각 학생의 필수과목의 평균등급을 조회합니다.
     public void getAverageGradeByStudentState(String state) {
+        //상태가 존재하지 않으면 예외처리를 해야한다
+        boolean existState = false;
+        for(StudentStatus status : StudentStatus.values()) {
+            if(status.name().equals(state)) {
+                existState = true;
+            }
+        }
+
+        if(!existState) {
+            System.out.println("상태를 잘못 입력하였습니다.");
+            return;
+        }
+
         StudentStatus status = StudentStatus.valueOf(state);
         List<Student> students = studentControl.getStudentByStatus(status);
 
+        //학생의 스코어 객체를 돌면서 필수인 값이 있으면 점수를 모은다
+        boolean existStudents = false;
         for (Student student : students) {
             int sumScore = 0;
             int sumEssentialSubjects = 0;
@@ -113,13 +128,23 @@ public class ScoreControl {
                         if (score.getSubjectId() == subject.getId() && score.getStudentId() == student.getId()) {
                             sumScore += score.getScore();
                             sumEssentialSubjects++;
+                            existStudents = true;
                         }
                     }
                 }
             }
-            int averageScore = sumScore / sumEssentialSubjects;
-            char grade = calculateGrade(averageScore, "필수");
-            System.out.println(student.getName() + "학생의 필수과목 평균 " + grade);
+            //만약에 학생이 점수를 등록하지 않았을때 / by zero 오류가 출력된다 그걸 방지하기 위한 방법
+            if(sumEssentialSubjects!=0)
+            {
+                int averageScore = sumScore / sumEssentialSubjects;
+                char grade = calculateGrade(averageScore, "필수");
+                System.out.println(student.getName() + "학생의 필수과목 평균 " + grade);
+            }
+        }
+        //반복문을 돌았음에도 학생이 존재하지 않는경우의 예외 처리
+        if(!existStudents)
+        {
+            System.out.println("해당 상태의 학생은 존재하지 않습니다");
         }
     }
 
