@@ -96,7 +96,14 @@ public class StudentControl {
     }
 
     //수강생을 삭제하는 메서드
-    public void deleteStudent(int id) {
+    public void deleteStudent(int id)
+    {
+        //입력된 키값이 매칭되지않으면
+        if(!students.containsKey(id)) {
+            System.out.println("해당 학생이 없습니다");
+            return;
+        }
+        //입력된 키값이 매칭되면 그 아이디를 삭제한다.
         students.remove(id);
     }
 
