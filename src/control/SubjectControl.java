@@ -13,6 +13,7 @@ public class SubjectControl
         initializeSubjects();
     }
 
+    //과목 등록을 위한 메서드
     private void initializeSubjects()
     {
         subjects.put(1, new Subject(1, "java", "필수"));
@@ -24,9 +25,9 @@ public class SubjectControl
         subjects.put(7, new Subject(7, "SPRING SECURITY", "선택"));
         subjects.put(8, new Subject(8, "REDIS", "선택"));
         subjects.put(9, new Subject(9, "MONGODB", "선택"));
-        System.out.println("등록되는지 테스트");
     }
 
+    //모든 과목 목록을 보여주는 메서드
     public void displayAllSubjects()
     {
         for(Subject subject : subjects.values())

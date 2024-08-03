@@ -15,7 +15,6 @@ public class App {
         StudentControl studentControl = new StudentControl(subjectControl);
         ScoreControl scoreControl = new ScoreControl(studentControl);
 
-
         while (true) {
             //조회 및 입력부분
             System.out.println("1. 학생 등록");
