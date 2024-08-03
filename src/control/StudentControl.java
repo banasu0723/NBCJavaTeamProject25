@@ -19,6 +19,10 @@ public class StudentControl {
 
     //학생 등록 메서드
     public void addStudent(int id, String name, String subject) {
+        if (students.containsKey(id)) {
+            System.out.println("이미 있는 학생입니다");
+            return;
+        }
         String[] subjectsArr = subject.split(",");
         List<Subject> subjectsList = new ArrayList<>();
 
@@ -29,10 +33,27 @@ public class StudentControl {
             int subjectIdInt = Integer.parseInt(s);
             if (subjects.containsKey(subjectIdInt)) {
                 Subject sub = subjects.get(subjectIdInt);
-                subjectsList.add(sub);
-                if (sub.getType().equals("필수")) {
-                    essentialCount++;
-                } else if (sub.getType().equals("선택")) optionCount++;
+                boolean isDuplicate = false;
+                for(Subject mySubjcts : subjectsList)
+                {
+                    if(mySubjcts.getId() == subjectIdInt)
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                if(!isDuplicate)
+                {
+                    subjectsList.add(sub);
+                    if(sub.getType().equals("필수"))
+                    {
+                        essentialCount++;
+                    }
+                    else if (sub.getType().equals("선택"))
+                    {
+                        optionCount++;
+                    }
+                }
             }
         }
         if (essentialCount < 3 || optionCount < 2) {
@@ -41,9 +62,13 @@ public class StudentControl {
         }
         Student student1 = new Student(id, name, subjectsList, StudentStatus.GREEN);
         students.put(id, student1);
+        System.out.println("등록되었습니다!");
     }
 
     public void getAllStudents() {
+        for (Student student : students.values()) {
+            System.out.println(student.getName());
+        }
     }
 
     public void getStudentInfo(int id) {
