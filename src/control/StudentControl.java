@@ -79,9 +79,7 @@ public class StudentControl {
     }
 
     public void getAllStudents() {
-        for (Student student : students.values()) {
-            System.out.println(student.getName());
-        }
+
     }
 
     public void getStudentInfo(int id) {
@@ -107,6 +105,7 @@ public class StudentControl {
         }
         return studentList;
     }
+
 
     //수강생을 삭제하는 메서드
     public void deleteStudent(int id)

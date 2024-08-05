@@ -119,8 +119,9 @@ public class App {
                 // 수강생 과목별 평균 등급 조회 로직
                 System.out.print("수강생 ID를 입력하세요 : ");
                 int id = sc.nextInt();
+                int subject = sc.nextInt();
                 //수강생 과목별 평균 등급 조회 메서드 매개변수 : id
-                //getAverageGradeByCourseForStudent(id);
+                scoreControl.getAverageGradeByStudentSubject(id, subject);
             } else if (cmd == 11) {
                 // 특정 상태의 수강생 필수 과목 평균 등급 조회
                 System.out.print("조회할 상태를 입력하세요 : ");
