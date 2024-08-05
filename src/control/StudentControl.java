@@ -86,21 +86,13 @@ public class StudentControl {
 
     }
 
-    // 상태별 수강생 목록 조회메서드
-    public void getStudentByState(String state) {
-        for (Student student : students.values()) {
-            if(student.getStatus().name().equals(state)) {
-                System.out.println(" ID : " + student.getId() + " 이름 : " + student.getName());
-            }
-        }
-    }
-
     //상태별 수강생 목록 조회 메서드 위 메서드와 합칠수 있을듯
-    public List<Student> getStudentByStatus(StudentStatus status) {
+    public List<Student> getStudentByStatus(String status) {
         List<Student> studentList = new ArrayList<>();
         for (Student student : students.values()) {
-            if(student.getStatus().name().equals(status.name())) {
+            if(student.getStatus().name().equals(status)) {
                 studentList.add(student);
+                System.out.println(" ID : " + student.getId() + " 이름 : " + student.getName());
             }
         }
         return studentList;

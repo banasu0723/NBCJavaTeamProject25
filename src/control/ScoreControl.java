@@ -113,11 +113,11 @@ public class ScoreControl {
 
     //수강생 상태별 필수과목의 평균 등급 조회 - 작성자 조준호
     //state(green, red, yellow)를 넣으면 그 state를 기반으로 각 학생의 필수과목의 평균등급을 조회합니다.
-    public void getAverageGradeByStudentState(String state) {
+    public void getAverageGradeByStudentState(String status) {
         //상태가 존재하지 않으면 예외처리를 해야한다
         boolean existState = false;
-        for(StudentStatus status : StudentStatus.values()) {
-            if(status.name().equals(state)) {
+        for(StudentStatus state : StudentStatus.values()) {
+            if(state.name().equals(status)) {
                 existState = true;
             }
         }
@@ -127,7 +127,7 @@ public class ScoreControl {
             return;
         }
 
-        StudentStatus status = StudentStatus.valueOf(state);
+        StudentStatus state = StudentStatus.valueOf(status);
         List<Student> students = studentControl.getStudentByStatus(status);
 
         //학생의 스코어 객체를 돌면서 필수인 값이 있으면 점수를 모은다
