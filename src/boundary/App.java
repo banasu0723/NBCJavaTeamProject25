@@ -106,7 +106,7 @@ public class App {
                 sc.nextLine();
                 String state = sc.nextLine().toUpperCase();
                 //상태별 수강생 목록 조회 메서드
-                studentControl.getStudentByState(state);
+                studentControl.getStudentByStatus(state);
             } else if (cmd == 9) {
                 // 수강생 삭제
                 System.out.print("삭제할 수강생 ID를 입력하세요 : ");
