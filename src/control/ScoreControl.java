@@ -84,9 +84,10 @@ public class ScoreControl {
     public void updateScore(int id, int subject, int round, int newScore) {
         System.out.println("시험 점수를 수정합니다...");
 
+
         //조건에 맞는 수강생의 회차에 맞는 점수 넣기
-        for(Score score : scores){
-            if(score.getStudentId() == id && score.getSubjectId()==subject && score.getRound()==round){
+        for(Score score : scores) {
+            if (score.getStudentId() == id && score.getSubjectId() == subject && score.getRound() == round) {
                 score.setScore(newScore);
             }
         }
@@ -94,6 +95,18 @@ public class ScoreControl {
         System.out.println("\n점수 수정 성공!");
     }
 
+    //수강생 과목별 평균 등급 조회
+    public void getAverageGradeByStudentSubject(int id, int subject){
+        char averageGrade;
+        /*List<Student> students = studentControl.getSubjects()
+
+        for(Student student : students){
+
+        }*/
+
+        System.out.println("과목명 : " + subject);
+        System.out.println("평균 등급 : ");
+    }
 
     public void getGradesBySession(int id, int subject) {
     }
